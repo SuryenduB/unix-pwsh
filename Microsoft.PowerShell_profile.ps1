@@ -1,5 +1,5 @@
-$githubUser = "CrazyWolf13" # Change this here if you forked the repository.
-$name= "User" # Change this to your name.
+$githubUser = "SuryenduB" # Change this here if you forked the repository.
+$name= "Suryendu" # Change this to your name.
 $OhMyPoshConfig = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/$OhMyPoshConfigFileName" # URL of the OhMyPosh config file, make sure to use the last part of the raw lik, (stands for the filename) in the variable on the line below
 $OhMyPoshConfigFileName = "montys.omp.json" # Filename of the OhMyPosh config file
 
@@ -8,7 +8,7 @@ $OhMyPoshConfigFileName = "montys.omp.json" # Filename of the OhMyPosh config fi
 # Check internet access
 # Use wmi as there is no timeout in pwsh  5.0 and generally slow.
 $timeout = 1000 
-$pingResult = Get-WmiObject -Query "Select * from Win32_PingStatus where Address='github.com' and Timeout=$timeout"
+$pingResult = Get-CimInstance -Query "Select * from Win32_PingStatus where Address='github.com' and Timeout=$timeout"
 if ($pingResult.StatusCode -eq 0) {$canConnectToGitHub = $true} 
 else {$canConnectToGitHub = $false}
 
